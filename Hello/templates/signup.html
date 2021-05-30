@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+{% block title %} SIGNUP {% endblock title %}
+{% block style %}
+
+
+<style>
+
+  body{
+    background: url('/static/b4.jfif');
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+
+  }
+  .bd-placeholder-img {
+    font-size: 1.125rem;
+    text-anchor: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+  }
+
+  @media (min-width: 768px) {
+    .bd-placeholder-img-lg {
+      font-size: 3.5rem;
+    }
+  }
+
+  .form-signin {
+    width: 100%;
+    max-width: 330px;
+    padding: 15px;
+    margin: auto;
+  }
+
+  .form-signin .checkbox {
+    font-weight: 400;
+  }
+
+  .form-signin .form-floating:focus-within {
+    z-index: 2;
+  }
+
+  .form-signin input[type="email"] {
+    margin-bottom: -1px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+
+  .form-signin input[type="password"] {
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+
+</style>
+
+
+{% endblock style %}
+
+
+{% block body %}
+<main class="form-signin " style="position: absolute;top: 50%; 
+  left: 50%;-ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+background: rgba(0,0,0,0.7); border-radius: 15px;">
+  <form method="post" action="/signup" style="padding: 1.4vw;">
+    {% csrf_token %}
+    <h1 class="h3 mb-3 fw-normal text-center" style="color:white; ">Sign Up</h1>
+
+    <div class="form-floating">
+      <input type="text" class="form-control" name='username' id="floatingInput" placeholder="username">
+      <label for="username" name="username" style="color:rgba(0,0,0,0.8); ">Set your Username</label>
+    </div>
+    <div class="form-floating my-3">
+      <input type="password" class="form-control" name="password" id="floatingPassword" placeholder="Password">
+      <label for="password" name='password' style="color:rgba(0,0,0,0.8); ">Set your Password</label>
+    </div>
+
+    
+    <div class="checkbox mb-3 my-5 mx-2 signup" style="text-align: right;color:white;">
+      <label >
+       Already a user? <a href="/login" class="btn btn-primary" style="border-radius:10vw; width:100px;" > login </a>
+      </label>
+    </div>
+    <button class="w-100 btn btn-lg btn-success" type="submit" style="border-radius:15vw;;">Sign up</button>
+    <p class="mt-0 mb-3 text-muted">&copy; Icecream Shop</p>
+  </form>
+</main>
+
+{% endblock body %}
